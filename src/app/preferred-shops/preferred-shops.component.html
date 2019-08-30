@@ -1,0 +1,21 @@
+<div class="container pt-4" *ngIf="result && loggedUser">
+  <div class="d-flex justify-content-md-start flex-wrap">
+    <div class="col-md-3 mb-4" *ngFor="let shop of result._embedded.shops">
+      <div class="card">
+        <div class="card-header text-capitalize text-md-center">
+          <p>{{shop.name}} - {{shop.position}} KM</p>
+        </div>
+        <div class="card-body">
+          <img src="../../assets/images/shop-icon.jpg" alt="shop's icon" />
+        </div>
+        <div class="card-footer d-flex justify-content-around">
+          <button type="button" class="btn btn-outline-primary" (click)="remove(shop._links.shop.href)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-4" *ngIf="!result">
+  <p>You did not add any shop to your preferred list yet!</p>
+</div>

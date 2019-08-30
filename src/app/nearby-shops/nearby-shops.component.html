@@ -1,0 +1,18 @@
+<div class="container pt-4" *ngIf="result && loggedUser">
+  <div class="d-flex justify-content-md-start flex-wrap">
+    <div class="col-md-3 mb-4" *ngFor="let shop of result._embedded.shops">
+      <div class="card">
+        <div class="card-header text-capitalize text-md-center">
+          <p>{{shop.name}} - {{shop.position}} KM</p>
+        </div>
+        <div class="card-body">
+          <img src="../../assets/images/shop-icon.jpg" alt="shop's icon"/>
+        </div>
+        <div class="card-footer d-flex justify-content-around">
+          <button type="button" class="btn btn-outline-primary" (click)="setLiking(shop._links.shop.href, false)">Dislike</button>
+          <button type="button" class="btn btn-outline-primary" (click)="setLiking(shop._links.shop.href, true)">Like</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
